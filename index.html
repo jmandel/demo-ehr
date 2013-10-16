@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Health Tiles</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <script src="js/underscore.js"></script>
+    <script src="js/modernizr.js"></script>
+    <script src="bootstrap/js/jquery.js"></script>
+
+    <style type="text/css">
+      body {padding-top: 60px;}
+      .none-yet {font-style: italic; margin-bottom: 2em;}
+      .control-label {font-weight: bold;}
+      .custom-tile {margin-top: 2em;}
+      .tile-label {margin-bottom: 0px;}
+      .add-tile {text-decoration: underline; cursor: pointer;} 
+      .delete-tile {cursor: pointer;} 
+      iframe.tile {margin: 0px; border: 0px; height: 200px; width: 500px; overflow: hidden;}
+    </style>
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+  </head>
+
+  <body ng-app="healthTiles" ng-controller="MainController">
+    <div class="container">
+
+      <div class="navbar navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <a class="brand " href="#">Health Tiles Demo</a>
+          </div>
+        </div>
+      </div>
+      <div ng-view></div>
+    </div>
+
+    <div id="unsupportedModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="unsupportedBrowser" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="unsupportedBrowser">Browser Unsupported</h3>
+      </div>
+      <div class="modal-body">
+        <p>It looks like your browser doesn't support the SMART C-CDA Receiver.  You can try anyway, but we recommend</p>
+        <ul>
+          <li><a href="http://www.mozilla.org/en-US/firefox/new/">Firefox</a></li>
+          <li><a href="https://www.google.com/intl/en/chrome/browser/">Chrome</a></li>
+          <li><a href="http://www.apple.com/safari/">Safari</a></li>
+          <li><a href="http://windows.microsoft.com/en-US/internet-explorer/download-ie">IE 10</a> (Support for IE8/9 coming soon.)</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button  data-dismiss="modal" class="btn btn-primary">I understand!</button>
+      </div>
+    </div>
+    <div class="container">
+      <hr>
+      <footer>
+      <p>&copy; Harvard Medical School / Boston Children's Hospital, 2013</p>
+      </footer>
+    </div>
+    <script src="bootstrap/js/bootstrap-modal.js"></script>
+    <script>
+      if (!Modernizr.history){
+        $('#unsupportedModal').modal();
+      }
+    </script>
+
+  </body>
+  <script src="angular/angular.js"></script>
+  <script src="angular/angular-route.js"></script>
+  <script src="angular/angular-sanitize.js"></script>
+  <script src="angular/angular-animate.js"></script>
+  <script src="modules.js"></script>
+  <script src="controllers.js"></script>
+  <script src="services.js"></script>
+  <script src="directives.js"></script>
+</html>

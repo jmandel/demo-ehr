@@ -1,0 +1,46 @@
+<div>
+  <div class="row">
+    <div class="span6">
+      <h2>Patient Portal Experience</h2>
+
+      <h4>Your current tiles</h4>
+      <ul>
+        <li ng-repeat="tile in tiles">
+        {{tile.label}} <i ng-click="deleteTile(tile)" class="icon-trash delete-tile"></i>
+        </li>
+      </ul>
+      <div class="none-yet" ng-show="tiles.length==0"><span>None yet.</span></div>
+
+      <h4>Add a new tile</h4>
+      <ul>
+        <li ng-repeat="tile in tileSources">
+        <span class="add-tile" ng-click="addFromSource(tile)"> {{tile.label}} </span>
+        </li>
+      </ul>
+
+      <div class="custom-tile">
+      <h4>Add a custom time</h4>
+      <div class="control-group">
+        <label class="control-label" for="inputTileUrl">Tile URL</label>
+        <div class="controls">
+          <div class="input-prepend">
+            <span class="add-on"><i class="icon-file"></i></span>
+            <input id="inputTileUrl" type="text" 
+            ng-model="newTileUrl" 
+            placeholder="https:// ..."/>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-small">Add custom tile</button>
+    </div>
+    </div>
+    <div class="span6">
+      <h2>Clinician Experience</h2>
+      <div ng-repeat="tile in tiles">
+        <h4 class="tile-label"> {{tile.label}}</h4>
+        {{tile.url}}
+        <iframe SEAMLESS class="tile" ng-src="{{tile.trustedUrl}}"  ></iframe>
+      </div>
+    </div>
+  </div>
+</div>
